@@ -1,0 +1,374 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "SDXLFaetastic_v24.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "style of fantasy realism, best quality, high resolution, extremely detailed, 8k, dynamic angle, (Max Thorne, a tall, muscular man with amber eyes and jet-black hair, practicing swordplay in a sunlit courtyard. He is wearing leather armor, a glowing amulet, and holding the powerful longsword, Shadowbane. Nearby, Elysia Moonshadow, a woman with fair skin, silvery hair, and violet eyes, dressed in flowing blue-silver robes, is calmly helping an elderly neighbor with a warm smile while holding her magical staff. The background shows a vibrant coastal town of Marenthal with children playing and colorful buildings under a clear blue sky.)",
+      "clip": [
+        "45",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": "(bad),text,error,fewer,extra,missing,worst quality,jpeg artifacts,low quality, watermark, unfinished, displeasing, oldest, early, chromatic aberration,signature,extra digits,artistic error, username,scan,[abstract], modern, (worst quality:1.6), (low quality:1.4), ugly, deformed, disfigured, bad anatomy, bad proportions, extra limbs, blurry, noisy, bad hands, extra digits, stylized, NSFW, sexy, sex, breasts, pussy",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "4": {
+    "inputs": {
+      "seed": 761297286652583,
+      "steps": 30,
+      "cfg": 7,
+      "sampler_name": "dpmpp_3m_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "45",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "latent_image": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "samples": [
+        "4",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "6": {
+    "inputs": {
+      "images": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "7": {
+    "inputs": {
+      "width": 1080,
+      "height": 1240,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "30": {
+    "inputs": {
+      "enabled": true,
+      "swap_model": "inswapper_128.onnx",
+      "facedetection": "retinaface_resnet50",
+      "face_restore_model": "GFPGANv1.4.pth",
+      "face_restore_visibility": 1,
+      "codeformer_weight": 1,
+      "detect_gender_input": "no",
+      "detect_gender_source": "no",
+      "input_faces_index": "0",
+      "source_faces_index": "0,1",
+      "console_log_level": 1,
+      "input_image": [
+        "5",
+        0
+      ],
+      "source_image": [
+        "44",
+        0
+      ],
+      "second_source_image": [
+        "45",
+        0
+      ]
+    },
+    "class_type": "ReActorFaceSwap",
+    "_meta": {
+      "title": "ReActor \u00f0\u0178\u0152\u0152 Fast Face Swap"
+    }
+  },
+  "34": {
+    "inputs": {
+      "face_model": "none"
+    },
+    "class_type": "ReActorLoadFaceModel",
+    "_meta": {
+      "title": "Load Face Model \u00f0\u0178\u0152\u0152 ReActor"
+    }
+  },
+  "35": {
+    "inputs": {
+      "pixels": [
+        "30",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "36": {
+    "inputs": {
+      "seed": 761297286652583,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpmpp_3m_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 0.16,
+      "model": [
+        "45",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "latent_image": [
+        "35",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "37": {
+    "inputs": {
+      "samples": [
+        "36",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "44": {
+    "inputs": {
+      "image": "A Blaze in the Shadows\\Max Thorne.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "45": {
+    "inputs": {
+      "image": "A Blaze in the Shadows\\Elysia Moonshadow.png",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image (Supporting Character)"
+    }
+  },
+  "46": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "37",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "49": {
+    "inputs": {
+      "lora_name": "sss-000009.safetensors",
+      "strength_model": 0.8,
+      "strength_clip": 0.8,
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "50": {
+    "inputs": {
+      "lora_name": "3Danimation_Disney_1.0.safetensors",
+      "strength_model": 0.7000000000000001,
+      "strength_clip": 0.7000000000000001,
+      "model": [
+        "53",
+        0
+      ],
+      "clip": [
+        "53",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "51": {
+    "inputs": {
+      "lora_name": "MJ52.safetensors",
+      "strength_model": 0.5,
+      "strength_clip": 0.5,
+      "model": [
+        "49",
+        0
+      ],
+      "clip": [
+        "49",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "52": {
+    "inputs": {
+      "lora_name": "TQ_-_Impasto_Elegance_Art-000006.safetensors",
+      "strength_model": 0.6,
+      "strength_clip": 0.6,
+      "model": [
+        "51",
+        0
+      ],
+      "clip": [
+        "51",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "53": {
+    "inputs": {
+      "lora_name": "extremely_detailed.safetensors",
+      "strength_model": 0.8,
+      "strength_clip": 0.8,
+      "model": [
+        "52",
+        0
+      ],
+      "clip": [
+        "52",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "54": {
+    "inputs": {
+      "lora_name": "Perfect Hands v2.safetensors",
+      "strength_model": 0.8,
+      "strength_clip": 0.8,
+      "model": [
+        "50",
+        0
+      ],
+      "clip": [
+        "50",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "55": {
+    "inputs": {
+      "lora_name": "Expressive_H-000001.safetensors",
+      "strength_model": 0.8,
+      "strength_clip": 0.8,
+      "model": [
+        "54",
+        0
+      ],
+      "clip": [
+        "54",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  }
+}
